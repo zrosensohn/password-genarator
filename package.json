@@ -1,0 +1,23 @@
+{
+  "name": "test-project",
+  "version": "1.0.0",
+  "description": "Trying to theme bootstrap",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "bundle-js": "^1.0.3",
+    "clipboard": "^2.0.4",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.4.1",
+    "node-sass": "^4.13.0",
+    "watch": "^1.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "js": "bundle-js ./js/src/index.js [ --dest ./js/main.js [-p]",
+    "watch": "node-sass --watch scss -o css"
+  },
+  "author": "Zachary Rosensohn",
+  "license": "ISC"
+}
