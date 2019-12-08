@@ -4,15 +4,18 @@ const init = function(){
 }
 
 const genPass = function(e){
-    e.preventDefault(); // Prevent Reload
-    properties.passwordArray=[]; //Clear The Password Array
-
+    // Prevent Reload
+    e.preventDefault();
+    //Clear The Password Array
+    properties.passwordArray=[]; 
     //Select Special Characters
-    let chk = document.getElementById('selectSpecialChar');
-    let chkInt = parseInt(chk.value); // Convert input value to integer
+    let chk = document.getElementById("selectSpecialChar");
+    // Convert input value to integer
+    let chkInt = parseInt(chk.value); 
 
     if (chk.checked){
-        properties.setSpecial(chkInt); //Set special character property in object
+        //Set special character property in object
+        properties.setSpecial(chkInt); 
     }
     else{
         properties.setSpecial(0);
@@ -20,39 +23,36 @@ const genPass = function(e){
     
     //Set Numbers
     let length = document.getElementById('numberOfChar');
-    var lengthInt = parseInt(length.value); //convert password length to integer
+    //convert password length to integer
+    let lengthInt = parseInt(length.value);
+
     if(lengthInt !== 0){
-        properties.setLength(lengthInt); // set password length
-        console.log(properties);
-        properties.setNumbers(); // create random distribution of character types
-        properties.createArr(); // create array of character types
-        let randomPass = properties.shuffle(); //shuffle array and return as string
-        console.log(randomPass.length);
-        console.log(randomPass);
-        document.getElementById('alert').innerHTML = 
+        // set password length in object
+        properties.setLength(lengthInt); 
+        //Return Password
+        let randomPass = properties.createArr(); 
+
+        document.getElementById('alert').innerHTML =
             `<div class="alert alert-success" role="alert">
-            <h4 class="alert-heading">Your Password Is</h4>
+            <h4 class="alert-heading">Your Password</h4>
             <p id="yourPass">${randomPass}</p>
-            <p class="mb-0"></p>
-        </div>`;
+            </div>`;
     }
     else{
         document.getElementById('alert').innerHTML =
             `<div class="alert alert-warning" role="alert">
             <h4 class="alert-heading">Warning</h4>
             <p>You Must Choose A Password Length</p>
-            <p class="mb-0"></p>
             </div>`;
-
     }
 
 }
 
 const copy = function(e){
-    e.preventDefault(); // Prevent Reload
+    // Prevent Reload
+    e.preventDefault(); 
 
         // Tooltip
-
         $('#copyToClip').tooltip({
             trigger: 'click',
             placement: 'top'
@@ -71,7 +71,6 @@ const copy = function(e){
         }
     
         // Clipboard
-    
         let clipboard = new ClipboardJS('#copyToClip');
     
         clipboard.on('success', function(e) {
@@ -84,7 +83,5 @@ const copy = function(e){
         hideTooltip();
         });
 }
-
-
 
 document.addEventListener('DOMContentLoaded', init)
